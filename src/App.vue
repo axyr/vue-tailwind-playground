@@ -1,26 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Hello App!</h1>
+    <ul>
+      <li>
+        <router-link :to="{ name: 'home'}">Home</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'foo'}">Foo</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'bar'}">Bar</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'users.show', params: { id: 1 }}">User 1</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'users.show', params: { id: 2 }}">User 2</router-link>
+      </li>
+    </ul>
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style src="./css/tailwind.css">
+ul li{
+  display: inline-block;
+  padding: 0 5px;
+}
+ul li a{
+  display: inline-block;
+  border: 1px solid;
+  text-decoration: none;
+  padding: 5px 10px;
 }
 </style>
